@@ -9,28 +9,13 @@
   "common": {
     "$ref": "common.json"
   },
+  "ipower_definitions": {
+    "$ref": "{cppinterfacedir}/IPower.h"
+  },
   "definitions": {
     "state":{
-        "type": "string",
-        "enum": [
-          "on",
-          "activestandby",
-          "passivestandby",
-          "suspendtoram",
-          "hibernate",
-          "poweroff"
-        ],
-        "enumvalues": [
-          1,
-          2,
-          3,
-          4,
-          5,
-          6
-        ],
-        "enumtyped": false,
-        "description": "Power state",
-        "example": "on"
+      "$ref": "#/ipower_definitions/Exchange::IPower::PCState",
+      "description": "Power state"
     },
     "power":{
         "type": "object",

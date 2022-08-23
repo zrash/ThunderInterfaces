@@ -27,12 +27,12 @@ namespace Exchange {
         enum { ID = ID_POWER };
 
         enum PCState : uint8_t {
-            On = 1, // S0.
-            ActiveStandby = 2, // S1.
-            PassiveStandby = 3, // S2.
-            SuspendToRAM = 4, // S3.
-            Hibernate = 5, // S4.
-            PowerOff = 6, // S5.
+            On = 1 /* @text:on */, // S0.
+            ActiveStandby = 2 /* @text:activestandby */, // S1.
+            PassiveStandby = 3 /* @text:passivestandby */, // S2.
+            SuspendToRAM = 4 /* @text:suspendtoram */, // S3.
+            Hibernate = 5 /* @text:hibernate */, // S4.
+            PowerOff = 6 /* @text:poweroff */, // S5.
         };
 
         enum PCPhase : uint8_t {
@@ -43,14 +43,14 @@ namespace Exchange {
         struct EXTERNAL INotification : virtual public Core::IUnknown {
             enum { ID = ID_POWER_NOTIFICATION };
 
-            virtual void StateChange(const PCState origin, const PCState destination, const PCPhase phase) = 0;
+            virtual void StateChange(const PCState powerstate, const PCState destination, const PCPhase phase) = 0;
         };
 
         virtual void Register(IPower::INotification* sink) = 0;
         virtual void Unregister(IPower::INotification* sink) = 0;
 
         virtual PCState GetState() const = 0;
-        virtual uint32_t SetState(const PCState, const uint32_t) = 0;
+        virtual uint32_t SetState(const PCState powerstate, const uint32_t timeout) = 0;
         virtual void PowerKey() = 0;
     };
 }
