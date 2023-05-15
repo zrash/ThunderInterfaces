@@ -353,7 +353,12 @@ namespace Exchange {
         ID_WATCHDOG                                  = 0x000004E0,
 
         ID_SCRIPT_ENGINE                             = 0x000004F0,
-        ID_SCRIPT_ENGINE_NOTIFICATION                = ID_SCRIPT_ENGINE + 1
+        ID_SCRIPT_ENGINE_NOTIFICATION                = ID_SCRIPT_ENGINE + 1,
+
+        ID_BLUETOOTHAUDIOSOURCE                      = 0x00000500,
+        ID_BLUETOOTHAUDIOSOURCE_NOTIFICATION         = ID_BLUETOOTHAUDIOSOURCE + 1,
+        ID_BLUETOOTHAUDIOSOURCE_CONTROL              = ID_BLUETOOTHAUDIOSOURCE + 2,
+        ID_BLUETOOTHAUDIOSOURCE_CONTROL_CALLBACK     = ID_BLUETOOTHAUDIOSOURCE + 3
     };
 }
 }
